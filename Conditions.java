@@ -68,5 +68,25 @@ public class Conditions
         
         if (coinFlip == 0)
             System.out.println("Coin is tails!");
+            System.out.println("Better luck next time...");
     }
+    public static boolean doublesAreEqual(double num1, double num2)
+    {
+    /*
+     * if we use == it will only return true if all binary digits match, so use epsilon value
+     */
+    final double EPSILON = 1e-14;
+       
+    if (Math.abs(num1-num2) < EPSILON) // has to be true or false
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    // dont have to use an if statement
+    //just reuturn the (Math.abs(num1-num2) < EPSILON
+    
+}
 }
