@@ -185,4 +185,28 @@ public class Conditions
         String flavor = s.next();
         System.out.println("Your favorite ice cream flavor is: " + flavor);
     }
+    public static void extraOperatorsExample()
+    {
+        /*
+         * Augmenteed assignment operators +=, -=, *=, /=, %=
+         */
+        int x = 7;
+        int y = 7;
+        int z = 7;
+        x = x+1;
+        y += 1;
+        z++;
+        
+        System.out.println(x+y+z);
+        /*
+         * post incremen/decrement operators (++/--)
+         * returns the value before performing the increment/decrement
+         */
+        int a = 7;
+        int b = a++;
+        //a++;
+        System.out.println(a + b);
+        a--; //decrement as well
+        --a; // preincrement operator
+    }
 }
