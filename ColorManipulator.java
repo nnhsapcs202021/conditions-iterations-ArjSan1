@@ -3,8 +3,8 @@ import java.awt.Color;
 /**
  * Class that manipulates the colors in a specified picture
  *
- * @author gcschmit
- * @version 5 June 2017
+ * @author ArjSan1
+ * @version 6 January 2021
  */
 public class ColorManipulator
 {
@@ -19,7 +19,7 @@ public class ColorManipulator
     {
         this.picture = newPicture;
     }
-    
+
     /**
      * Returns the Picture associated with this ColorManipulator object. Intended to
      *      be used by the test class.
@@ -52,6 +52,54 @@ public class ColorManipulator
     }
 
     /**
+     * Sets the red component of the color of every pixel in the picture to the maximum value
+     *
+     *      An example of manipulating one component of the color of a pixel.
+     */
+    public void maxRed()
+    {
+        int width = this.picture.getWidth();
+        int height = this.picture.getHeight();
+
+        for( int y = 0; y < height; y++ )
+        {
+            for( int x = 0; x < width; x++ )
+            {
+                Pixel pixel = this.picture.getPixel( x, y );
+                pixel.setRed( 255 );
+            }
+        }
+    }
+
+    /**
+     * Sets the Green component of the color of every pixel in the picture to the maximum value
+     *
+     *      An example of manipulating one component of the color of a pixel.
+     */
+    public void maxGreen()
+
+    {
+        int width = this.picture.getWidth();
+        int height = this.picture.getHeight();
+
+        for( int y = 0; y < height; y++ )
+        {
+            for( int x = 0; x < width; x++ )
+            {
+                Pixel pixel = this.picture.getPixel( x, y );
+                pixel.setGreen( 255 );
+            }
+        }
+    }
+    /**
+     * 
+     */
+    public void Grayscale()
+    {
+
+    }
+
+    /**
      * Negates the color of every pixel in the picture
      *
      *      An example of manipulating the color of a pixel using a Color object
@@ -67,11 +115,11 @@ public class ColorManipulator
             {
                 Pixel pixel = this.picture.getPixel( x, y );
                 Color color = pixel.getColor();
-                
+
                 int negatedRed = 255 - color.getRed();
                 int negatedBlue = 255 - color.getBlue();
                 int negatedGreen = 255 - color.getGreen();
-                
+
                 Color negated = new Color( negatedRed, negatedBlue, negatedGreen );
                 pixel.setColor( negated );
             }
@@ -81,10 +129,10 @@ public class ColorManipulator
     public static void main(String args[])
     {
         // the selfie image must be in the Shepard Fairey folder
-        Picture picture= new Picture( "selfiePortrait.jpg" );
+        Picture picture= new Picture( "Selfie2.jpg" );
         ColorManipulator manipulator = new ColorManipulator( picture );
         picture.explore();
-        manipulator.negate();
+        manipulator.maxRed();
         picture.explore();
     }
 }

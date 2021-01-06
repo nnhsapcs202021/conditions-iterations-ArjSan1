@@ -3,8 +3,8 @@ import java.awt.Color;
 /**
  * Transforms a picture by applying a Shepard Fairey-inspired effect.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author ArjSan1
+ * @version 6 January 2021
  */
 public class ShepardFairey
 {
