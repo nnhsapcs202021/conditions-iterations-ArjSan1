@@ -55,14 +55,16 @@ public class ColorManipulatorTest
         
         //test second pixel
         Pixel pixel2 = picture.getPixel( 434, 560 );
-        Color color2 = pixel.getColor();
-        int red2 = color.getRed();
-        assertEquals(89, red);
+        Color color2 = pixel2.getColor();
+        int red2 = color2.getRed();
+        assertEquals(89, red2);
         
        //test third pixel
         Pixel pixel3 = picture.getPixel( 64, 398 );
-        Color color3 = pixel.getColor();
-        int red3 = color.getRed();
-        assertEquals(255, red);
+        Color color3 = pixel3.getColor();
+        int red3 = color3.getRed();
+        assertEquals(255, red3);
+        
     }
+   
 }

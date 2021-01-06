@@ -96,7 +96,26 @@ public class ColorManipulator
      */
     public void Grayscale()
     {
+        {
+        int width = this.picture.getWidth();
+        int height = this.picture.getHeight();
 
+        for( int y = 0; y < height; y++ )
+        {
+            for( int x = 0; x < width; x++ )
+            {
+                Pixel pixel = this.picture.getPixel( x, y );
+                Color color = pixel.getColor();
+
+                int greyscaleRed = ((color.getRed()+color.getBlue()+color.getGreen())/3);
+                int greyscaleBlue = ((color.getRed()+color.getBlue()+color.getGreen())/3);
+                int greyscaleGreen = ((color.getRed()+color.getBlue()+color.getGreen())/3);
+
+                Color greyscale = new Color( greyscaleRed, greyscaleBlue, greyscaleGreen );
+                pixel.setColor( greyscale );
+            }
+        }
+    }
     }
 
     /**
@@ -132,7 +151,7 @@ public class ColorManipulator
         Picture picture= new Picture( "Selfie2.jpg" );
         ColorManipulator manipulator = new ColorManipulator( picture );
         picture.explore();
-        manipulator.maxRed();
+        manipulator.Grayscale();
         picture.explore();
     }
 }
