@@ -91,31 +91,33 @@ public class ColorManipulator
             }
         }
     }
+
     /**
+     *Sets the rgb value of every pixel to its greyscale value
      * 
      */
-    public void Grayscale()
+    public void grayscale()
     {
         {
-        int width = this.picture.getWidth();
-        int height = this.picture.getHeight();
+            int width = this.picture.getWidth();
+            int height = this.picture.getHeight();
 
-        for( int y = 0; y < height; y++ )
-        {
-            for( int x = 0; x < width; x++ )
+            for( int y = 0; y < height; y++ )
             {
-                Pixel pixel = this.picture.getPixel( x, y );
-                Color color = pixel.getColor();
+                for( int x = 0; x < width; x++ )
+                {
+                    Pixel pixel = this.picture.getPixel( x, y );
+                    Color color = pixel.getColor();
 
-                int greyscaleRed = ((color.getRed()+color.getBlue()+color.getGreen())/3);
-                int greyscaleBlue = ((color.getRed()+color.getBlue()+color.getGreen())/3);
-                int greyscaleGreen = ((color.getRed()+color.getBlue()+color.getGreen())/3);
+                    int greyscaleRed = ((color.getRed()+color.getBlue()+color.getGreen())/3);
+                    int greyscaleBlue = ((color.getRed()+color.getBlue()+color.getGreen())/3);
+                    int greyscaleGreen = ((color.getRed()+color.getBlue()+color.getGreen())/3);
 
-                Color greyscale = new Color( greyscaleRed, greyscaleBlue, greyscaleGreen );
-                pixel.setColor( greyscale );
+                    Color greyscale = new Color( greyscaleRed, greyscaleBlue, greyscaleGreen );
+                    pixel.setColor( greyscale );
+                }
             }
         }
-    }
     }
 
     /**
@@ -145,13 +147,52 @@ public class ColorManipulator
         }
     }
 
+    public void posterize(Color colorToSet1 , Color colorToSet2, Color colorToSet3, Color colorToSet4)
+    {
+        int width = this.picture.getWidth();
+        int height = this.picture.getHeight();
+
+        for( int y = 0; y < height; y++ )
+        {
+            for( int x = 0; x < width; x++ )
+            {
+                Pixel pixel = this.picture.getPixel( x, y );
+                Color color = pixel.getColor();
+                int r = pixel.getRed();
+                if (r < 64)
+                {
+                    Color posterize1 = colorToSet1 ;
+                    pixel.setColor( posterize1 );
+                }
+                else if ( r > 64 && r<128  ) 
+                {
+                    Color posterize2 = colorToSet2 ;
+                    pixel.setColor( posterize2 );
+                }
+                else if ( r > 128 && r<192  ) 
+                {
+                     Color posterize3 = colorToSet3 ;
+                    pixel.setColor( posterize3 );
+                }
+                else
+                {
+                    Color posterize4 = colorToSet4 ;
+                    pixel.setColor( posterize4 );
+                }
+            }
+        }
+    }
+
     public static void main(String args[])
     {
         // the selfie image must be in the Shepard Fairey folder
         Picture picture= new Picture( "Selfie2.jpg" );
         ColorManipulator manipulator = new ColorManipulator( picture );
+
         picture.explore();
-        manipulator.Grayscale();
+        manipulator.grayscale();
         picture.explore();
+
+      
     }
 }
