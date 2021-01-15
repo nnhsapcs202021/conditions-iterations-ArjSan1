@@ -46,7 +46,7 @@ public class ColorManipulatorTest
         Picture picture = new Picture( "Selfie2.jpg" );
         ColorManipulator testColorManipulator = new ColorManipulator(picture);
         testColorManipulator.grayscale();
-       //test first pixel
+        //test first pixel
 
         Pixel pixel = picture.getPixel( 213, 187 );
         Color color = pixel.getColor();

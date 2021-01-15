@@ -146,8 +146,12 @@ public class ColorManipulator
             }
         }
     }
-
-    public void posterize(Color colorToSet1 , Color colorToSet2, Color colorToSet3, Color colorToSet4)
+     /**
+     * Posterizes the color of every pixel in the picture to inputted colors and subranges.
+     *
+     * @param 4 colors to input, and 3 subranges
+     */
+    public void posterize(Color colorToSet1 , Color colorToSet2, Color colorToSet3, Color colorToSet4,int subrange1, int subrange2, int subrange3)
     {
         int width = this.picture.getWidth();
         int height = this.picture.getHeight();
@@ -159,17 +163,17 @@ public class ColorManipulator
                 Pixel pixel = this.picture.getPixel( x, y );
                 Color color = pixel.getColor();
                 int r = pixel.getRed();
-                if (r < 64)
+                if (r < subrange1)
                 {
                     Color posterize1 = colorToSet1 ;
                     pixel.setColor( posterize1 );
                 }
-                else if ( r > 64 && r<128  ) 
+                else if ( r > subrange1 && r<subrange2  ) 
                 {
                     Color posterize2 = colorToSet2 ;
                     pixel.setColor( posterize2 );
                 }
-                else if ( r > 128 && r<192  ) 
+                else if ( r > subrange2 && r<subrange3  ) 
                 {
                      Color posterize3 = colorToSet3 ;
                     pixel.setColor( posterize3 );
