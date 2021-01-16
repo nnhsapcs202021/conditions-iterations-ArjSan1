@@ -151,7 +151,7 @@ public class ColorManipulator
      *
      * @param 4 colors to input, and 3 subranges
      */
-    public void posterize(Color colorToSet1 , Color colorToSet2, Color colorToSet3, Color colorToSet4,int subrange1, int subrange2, int subrange3)
+    public void posterize(Color colorToSet1 , Color colorToSet2, Color colorToSet3, Color colorToSet4,double subrange1, double subrange2, double subrange3)
     {
         int width = this.picture.getWidth();
         int height = this.picture.getHeight();

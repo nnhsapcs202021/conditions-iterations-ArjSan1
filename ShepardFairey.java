@@ -66,12 +66,11 @@ public class ShepardFairey
                 }
             }
         }
-        int totalRange = max-min;
-        int subrange1 = (totalRange)/(4);
-        System.out.println(subrange1);
-        
-        //invoke posterize method with selected colors
-        //this.manipulator.posterize(PURPLE, ORANGE, CYAN,YELLOW, );
+        double totalRange = max-min;
+        double subrange1 = (totalRange)/(4);
+        double subrange2 = subrange1 * 2;
+        double subrange3 = subrange1 * 3;        
+        this.manipulator.posterize(PURPLE, ORANGE, CYAN,YELLOW, subrange1, subrange2, subrange3);
 
     }
 
