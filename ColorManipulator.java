@@ -146,7 +146,8 @@ public class ColorManipulator
             }
         }
     }
-     /**
+
+    /**
      * Posterizes the color of every pixel in the picture to inputted colors and subranges.
      *
      * @param 4 colors to input, and 3 subranges
@@ -175,7 +176,7 @@ public class ColorManipulator
                 }
                 else if ( r > subrange2 && r<subrange3  ) 
                 {
-                     Color posterize3 = colorToSet3 ;
+                    Color posterize3 = colorToSet3 ;
                     pixel.setColor( posterize3 );
                 }
                 else
@@ -197,6 +198,5 @@ public class ColorManipulator
         manipulator.grayscale();
         picture.explore();
 
-      
     }
 }
