@@ -21,8 +21,29 @@ public class CommonLoopAlgorithms
     */
    public static int countMatches()
    {
-       return 0;
-   }
+       Scanner s= new Scanner(System.in);
+       int x=0;
+       while (s.hasNextInt())
+       {
+         
+         int a = s.nextInt();
+         if (a > 100){
+
+           x++;
+
+
+
+
+         }
+        
+       }
+       return x;
+       
+      
+          
+
+         
+       }
 
    /*
     * Loop Algorithm #3: Finding the First Match
